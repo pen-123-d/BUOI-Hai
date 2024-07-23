@@ -1,0 +1,107 @@
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+void menu()
+{
+	cout << "1.Tao mang ngau nhien có sô phan tu lon hon hoac bang 15" << endl;
+	cout << "2.Tao mang chua toan so chan " << endl;
+	cout << "3.Tim kiem linear " << endl;
+	cout << "4. Xap sep tang dan giam dan theo Interchage sort " << endl;
+	cout << "5.Tim kiem bnag Binary sort theo mang da tang " << endl;
+	cout << "6. Xap sep tang dan theo Selection sort " << endl;
+	cout << "7.Xap sep tang dan theo Qick sort " << endl;
+
+	
+}
+void Tao_Mang()
+{
+	// Tao mang co sl pt >=15 
+	srand(time(NULL));
+	int n,a[100];
+	n = 15 + rand() % (20 - 15 + 1);
+	for (int i = 0; i < n; i++)
+	{
+		a[i] = rand() % (15 + 1);
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	cout << endl;
+}
+void Tao_Mang_So_Chan()
+{
+	// Tao mang co so chan
+	srand(time(NULL));
+	int n, a[100];
+	n = 5+rand() % (15 + 1);
+	for (int i = 0; i < n; i++)
+	{
+		a[i] =2*( 5+rand() % (15 + 1));
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	cout << endl;
+
+}
+void Linear_Search()
+{
+	// linear seach 
+
+	int n, tmp, dem = 0, a[100];
+	cout << "Vui long nhap so luong phan tu " << endl;
+	cin >> n;
+	cout << " Vui long nhap mang " << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	cout << "Vui long nhap so can tim " << endl;
+	cin >> tmp;
+	for (int i = 0; i < n; i++)
+	{
+		if (tmp == a[i])
+		{
+			dem++;
+		}
+	}
+	if (dem > 0)
+	{
+		cout << "Da tim thay " << endl;
+	}
+	else
+	{
+		cout << "Khong tim thay" << endl;
+	}
+}
+int main()
+{
+	int n;
+	menu();
+	cout << "Vui long chon bai " << endl;
+	do 
+	{
+		cin >> n;
+		switch (n)
+		{
+		case 1:
+			Tao_Mang();
+			break;
+		case 2:
+			Tao_Mang_So_Chan();
+			break;
+		case 3:
+			Linear_Search();
+			break;
+
+
+
+		}
+	} while (n != 0);
+}
+
