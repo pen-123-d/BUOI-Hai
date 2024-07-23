@@ -79,13 +79,156 @@ void Linear_Search()
 		cout << "Khong tim thay" << endl;
 	}
 }
+void Interchange_Sort_Tang_Dan()
+{
+	
+	int tmp, n, a[100];
+
+	cout << " Vui long nhap so luong phan tu " << endl;
+	cin >> n;
+	cout << "Nhap mang" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (a[i] > a[j])
+			{
+				tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	cout << endl;
+}
+void Interchange_Sort_Giam_Dan()
+{
+	
+	int tmp, n, a[100];
+
+	cout << " Vui long nhap so luong phan tu " << endl;
+	cin >> n;
+	cout << "Nhap mang" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (a[i] < a[j])
+			{
+				tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	cout << endl;
+}
+void Interchange_Sort()
+{
+	// Interchange sort
+	Interchange_Sort_Giam_Dan();
+	Interchange_Sort_Tang_Dan();
+}
+void Binary_Sort()
+{
+	int a[100], n, x;
+	cout << "Vui long nhap so phan tu cua mang " << endl;
+	cin >> n;
+	int Phai = n - 1;
+	int Trai = 1;
+	int dem = 0;
+	cout << "Nhap mang " << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	cout << "Vui long nhap so can tim " << endl;
+	cin >> x;
+	while (Trai<=Phai)
+	{
+		int Giua = Trai + (Phai - Trai) / 2;
+		if (a[Giua] == x)
+		{
+			cout << "Da tim thay " << endl;
+			dem++;
+			return;
+		}
+		else if (a[Giua] < x)
+		{
+			Trai = Giua + 1;
+
+		}
+		else
+		{
+			Phai = Giua - 1;
+		}
+		
+	}
+	if (dem == 0)
+	{
+		cout << "Khong tim thay " << endl;
+	}
+	
+}
+void Selection_Sort() 
+{
+	int tmp, n, a[100];
+
+	cout << " Vui long nhap so luong phan tu " << endl;
+	cin >> n;
+	cout << "Nhap mang" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	for (int i = 0; i < n-1; i++)
+	{
+		tmp = i;
+		for (int j = i + 1; j < n; j++)
+		{
+			if (a[j] < a[tmp])
+			{
+				tmp = j;
+			}
+
+		}
+		
+			int tmp2;
+			tmp2 = a[i];
+			a[i] = a[tmp];
+			a[tmp] = tmp2;
+		
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	cout << endl;
+}
 int main()
 {
 	int n;
-	menu();
-	cout << "Vui long chon bai " << endl;
+	
 	do 
 	{
+		menu();
+		cout << "Vui long chon bai " << endl;
 		cin >> n;
 		switch (n)
 		{
@@ -98,6 +241,16 @@ int main()
 		case 3:
 			Linear_Search();
 			break;
+		case 4:
+			Interchange_Sort();
+			break;
+		case 5:
+			Binary_Sort();
+			break;
+		case 6:
+			Selection_Sort();
+			break;
+
 
 
 
